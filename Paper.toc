@@ -1,0 +1,9 @@
+\select@language {english}
+\contentsline {section}{\numberline {1}Introduction}{1}{section.1}
+\contentsline {section}{\numberline {2}Data}{2}{section.2}
+\contentsline {subsection}{\numberline {2.1}Summary Statistics}{2}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Further Statistics}{3}{subsection.2.2}
+\contentsline {section}{\numberline {3}Conclusion}{5}{section.3}
+\contentsline {section}{References}{6}{section*.3}
+\contentsline {section}{\numberline {A}Data Declaration}{7}{Appendix.1.A}
+\contentsline {section}{\numberline {B}\textrm {R}-Code}{8}{Appendix.1.B}

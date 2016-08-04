@@ -1,0 +1,137 @@
+\documentclass[a4paper,11pt,bibliography=totoc,numbers=noenddot]{scrartcl}
+\usepackage[english]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{enumerate}
+\usepackage{blindtext}
+\usepackage{listings}
+%\usepackage{xcolor} % knitr automatically adds this
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{rotating} % allows for rotation of tables
+\usepackage{dcolumn} % aligns numbers regarding decimal point in tables
+\usepackage{pdfpages}
+\usepackage[onehalfspacing]{setspace}
+\usepackage[left=3cm,right=2.5cm,top=2.5cm,bottom=2.5cm
+  %,includeheadfoot
+  ]{geometry}
+\usepackage{varioref} % use \vref{} instead of \ref
+\usepackage{pgf,tikz}
+\usepackage[pdfborder={0 0 0}]{hyperref}
+\usepackage{apacite}
+\usepackage{appendix}
+
+%%%%%%%%%%%%%%% Define some commands: %%%%%%%%%%%%%%%%
+\newcommand{\R}{\textrm{R}} % for correct writing of R, write \R
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%% Check and edit this: %%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\theAuthor}{Your Name}
+\newcommand{\theDate}{\today}
+\newcommand{\theAddress}{Your Address}
+\newcommand{\theZip}{ZIP Code}
+\newcommand{\theCity}{Your City}
+\newcommand{\theMatriculation}{09-xyz-xyz}
+\newcommand{\theTitle}{Some Title}
+\newcommand{\theSubtitle}{Some Subtitle}
+\newcommand{\theSupervisor}{Prof.\,PhD~Jon Doe}
+\newcommand{\theType}{Master's Thesis}
+\newcommand{\theSemester}{Fall 2016}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\labelformat{section}{section~#1}
+\labelformat{subsection}{subsection~#1}
+\labelformat{equation}{(#1)}
+\labelformat{table}{table~#1}
+\labelformat{figure}{figure~#1}
+% penalty for line break over pages
+\clubpenalty = 10000
+\widowpenalty = 10000
+
+% Distance Toc-Title and first entry
+\usepackage{tocloft}
+%\setlength\cftaftertoctitleskip{30pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+% Front page:
+\include{FrontBack/Frontpage}
+
+% Abstract:
+\include{FrontBack/Abstract}
+
+\pagenumbering{Roman} % Change pagenumbering to capital roman numbers
+% Preface:
+\include{FrontBack/Preface}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Lists %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TOC
+\newpage
+\tableofcontents
+\newpage
+% List of Tables
+%\phantomsection
+%\addcontentsline{toc}{section}{List of Tables}
+%\addtocontents{toc}{\protect\vspace{-5pt}}
+\listoftables
+\newpage
+% List of Figrues
+%\phantomsection
+%\addtocontents{toc}{\protect\vspace{-5pt}}
+%\addcontentsline{toc}{section}{List of Figures}
+\listoffigures
+%\lstlistoflistings
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Load relevant things into R's memory, such as functions, data and packages %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+<<prepare,results='hide',message=FALSE,warning=FALSE,echo=FALSE>>=
+source(file = 'Code/functions.R')
+LoadOrInstall(packages.required = 'stargazer') # loads all packages required
+@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Content %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Introduction:
+<<Introduction,child='Sections/Introduction.Rnw'>>=
+@
+
+% Data:
+<<Data,child='Sections/Data.Rnw'>>=
+@
+
+
+% Conclusion:
+<<Conclusion,child='Sections/Conclusion.Rnw'>>=
+@
+
+% References
+\newpage
+\setlength{\bibitemsep}{.45\baselineskip}
+\bibliographystyle{apacite}
+\interlinepenalty=10000  %prevent splited bibitems
+\bibliography{References}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Appendix %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\labelformat{section}{appendix~#1} % following sections are called appendix when refered to
+\begin{appendices}
+\include{Appendices/DataDeclaration}
+
+
+
+\newpage
+\section{\R-Code}
+\label{app:code}
+\lstinputlisting[nolol=true,basicstyle=\scriptsize\tt,breaklines=true]{Code/functions.R}
+\end{appendices}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Academic Honesty %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\include{FrontBack/Honesty}
+
+\end{document}

@@ -1,0 +1,26 @@
+\newpage
+\section{Data}
+\label{sec:Data}
+\blindtext[1]
+
+Useful package: \texttt{stargazer} produced \vref{tab:summarystats} \cite{stargazer}. One can see that the mean of sepal length is \Sexpr{mean(iris$Sepal.Length)}. You can install required packages on the fly, using the function shown in \vref{app:code}.
+\subsection{Summary Statistics}
+\label{sub:Stats}
+\blindtext
+<<summarystats,results='asis',echo=FALSE>>=
+stargazer(iris,align = T, title = 'Summary statistics of the iris database', label = 'tab:summarystats')
+@
+\blindtext[3]
+
+\subsection{Further Statistics}
+\blindtext
+<<boxplots,echo=FALSE,fig.height=3,fig.align='center',fig.cap='Boxplots of the iris data for all three species',fig.lp='fig:',results='hide'>>=
+species <- as.integer(iris$Species)
+par(mfrow = c(1,3))
+sapply(unique(iris$Species), FUN = function(x){
+  boxplot(iris[iris$Species == x, 1:4], main=paste0('Species = ',x), las=2)
+})
+@
+\blindtext[4]
+
+For the boxplots, see \vref{fig:boxplots}.

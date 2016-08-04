@@ -1,0 +1,33 @@
+\begin{thebibliography}{}
+
+\bibitem [\protect \citeauthoryear {%
+Hlavac%
+}{%
+Hlavac%
+}{%
+{\protect \APACyear {2014}}%
+}]{%
+stargazer}
+\APACinsertmetastar {%
+stargazer}%
+\begin{APACrefauthors}%
+Hlavac, M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2014}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {stargazer: LaTeX/HTML code and ASCII text for
+  well-formatted regression and summary statistics tables} {stargazer:
+  Latex/html code and ascii text for well-formatted regression and summary
+  statistics tables}{\BBCQ}\ [\bibcomputersoftwaremanual].
+\newblock
+\APACaddressPublisher{Cambridge, USA}{}.
+\newblock
+\begin{APACrefURL} \url{http://CRAN.R-project.org/package=stargazer}
+  \end{APACrefURL}
+\newblock
+\APACrefnote{R package version 5.1}
+\PrintBackRefs{\CurrentBib}
+
+\end{thebibliography}
