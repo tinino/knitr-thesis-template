@@ -88,8 +88,17 @@
 % Load relevant things into R's memory, such as functions, data and packages %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 <<prepare,results='hide',message=FALSE,warning=FALSE,echo=FALSE>>=
-source(file = 'Code/functions.R')
-LoadOrInstall(packages.required = 'stargazer') # loads all packages required
+source(file = "Code/functions.R")
+# makes it possible to install packages from github:
+if (!require("devtools")){
+  install.packages("devtools")
+  library(devtools)
+}
+# installs my package from github to make life easier:
+if (!require("tinotools")){
+  devtools::install_github("tinino/tinotools")
+}
+LoadOrInstall(packages.required = c("devtools", "stargazer")) # loads all packages required
 @
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Content %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
