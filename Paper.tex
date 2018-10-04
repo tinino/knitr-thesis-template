@@ -48,7 +48,7 @@
 \newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
 
 \usepackage{alltt}
-\usepackage[english]{babel}
+\usepackage[ngerman]{babel}
 \usepackage{amsmath,amssymb}
 \usepackage{enumerate}
 \usepackage{blindtext}
@@ -68,6 +68,10 @@
 \usepackage[pdfborder={0 0 0}]{hyperref}
 \usepackage{apacite}
 \usepackage{appendix}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[utf8]{inputenc}
+
 
 %%%%%%%%%%%%%%% Define some commands: %%%%%%%%%%%%%%%%
 \newcommand{\R}{\textrm{R}} % for correct writing of R, write \R
@@ -76,16 +80,16 @@
 %%%%%%%%%%%%%%% Check and edit this: %%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\theAuthor}{Your Name}
-\newcommand{\theDate}{\today}
-\newcommand{\theAddress}{Your Address}
-\newcommand{\theZip}{ZIP Code}
-\newcommand{\theCity}{Your City}
+\newcommand{\theDate}{\heute}
+\newcommand{\theAddress}{Deine Adresse}
+\newcommand{\theZip}{Deine PLZ}
+\newcommand{\theCity}{Deine Stadt}
 \newcommand{\theMatriculation}{09-xyz-xyz}
-\newcommand{\theTitle}{Some Title}
-\newcommand{\theSubtitle}{Some Subtitle}
+\newcommand{\theTitle}{Irgend ein Titel}
+\newcommand{\theSubtitle}{Untertitel}
 \newcommand{\theSupervisor}{Prof.\,PhD~Jon Doe}
-\newcommand{\theType}{Master's Thesis}
-\newcommand{\theSemester}{Fall 2016}
+\newcommand{\theType}{Masterarbeit}
+\newcommand{\theSemester}{Herbstsemester 2018}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \labelformat{section}{section~#1}
@@ -121,16 +125,16 @@
 \newpage
 \tableofcontents
 \newpage
-% List of Tables
+% Tabellenverzeichnis
 %\phantomsection
-%\addcontentsline{toc}{section}{List of Tables}
+%\addcontentsline{toc}{section}{Tabellenverzeichnis}
 %\addtocontents{toc}{\protect\vspace{-5pt}}
 \listoftables
 \newpage
-% List of Figrues
+% Abbildungsverzeichnis
 %\phantomsection
 %\addtocontents{toc}{\protect\vspace{-5pt}}
-%\addcontentsline{toc}{section}{List of Figures}
+%\addcontentsline{toc}{section}{Abbildungsverzeichnis}
 \listoffigures
 %\lstlistoflistings
 
@@ -163,22 +167,22 @@ Useful package: \texttt{stargazer} produced \vref{tab:summarystats} \cite{starga
 
 % Table created by stargazer v.5.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
 % Date and time: Fre, Aug 05, 2016 - 09:59:03
-% Requires LaTeX packages: dcolumn 
-\begin{table}[!htbp] \centering 
-  \caption{Summary statistics of the iris database} 
-  \label{tab:summarystats} 
-\begin{tabular}{@{\extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} } 
-\\[-1.8ex]\hline 
-\hline \\[-1.8ex] 
-Statistic & \multicolumn{1}{c}{N} & \multicolumn{1}{c}{Mean} & \multicolumn{1}{c}{St. Dev.} & \multicolumn{1}{c}{Min} & \multicolumn{1}{c}{Max} \\ 
-\hline \\[-1.8ex] 
-Sepal.Length & 150 & 5.843 & 0.828 & 4.300 & 7.900 \\ 
-Sepal.Width & 150 & 3.057 & 0.436 & 2.000 & 4.400 \\ 
-Petal.Length & 150 & 3.758 & 1.765 & 1.000 & 6.900 \\ 
-Petal.Width & 150 & 1.199 & 0.762 & 0.100 & 2.500 \\ 
-\hline \\[-1.8ex] 
-\end{tabular} 
-\end{table} 
+% Requires LaTeX packages: dcolumn
+\begin{table}[!htbp] \centering
+  \caption{Summary statistics of the iris database}
+  \label{tab:summarystats}
+\begin{tabular}{@{\extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} }
+\\[-1.8ex]\hline
+\hline \\[-1.8ex]
+Statistic & \multicolumn{1}{c}{N} & \multicolumn{1}{c}{Mean} & \multicolumn{1}{c}{St. Dev.} & \multicolumn{1}{c}{Min} & \multicolumn{1}{c}{Max} \\
+\hline \\[-1.8ex]
+Sepal.Length & 150 & 5.843 & 0.828 & 4.300 & 7.900 \\
+Sepal.Width & 150 & 3.057 & 0.436 & 2.000 & 4.400 \\
+Petal.Length & 150 & 3.758 & 1.765 & 1.000 & 6.900 \\
+Petal.Width & 150 & 1.199 & 0.762 & 0.100 & 2.500 \\
+\hline \\[-1.8ex]
+\end{tabular}
+\end{table}
 
 \blindtext[3]
 
@@ -187,7 +191,7 @@ Petal.Width & 150 & 1.199 & 0.762 & 0.100 & 2.500 \\
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{figure}
 
-{\centering \includegraphics[width=\maxwidth]{figure/boxplots-1} 
+{\centering \includegraphics[width=\maxwidth]{figure/boxplots-1}
 
 }
 
